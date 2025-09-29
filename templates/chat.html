@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Assistant Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="chat-widget">
+        <div class="chat-header">
+            College Assistant
+        </div>
+        
+        <div class="chat-box" id="chat-box">
+            <div class="bot-message">
+                Hi! I'm your College Assistant. How can I help you today?
+            </div>
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+            <button type="button" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Focus on input when page loads
+            $('#user-input').focus();
+            
+            // Handle send button click
+            $('#send-btn').click(function() {
+                sendMessage();
+            });
+            
+            // Handle Enter key press
+            $('#user-input').keypress(function(e) {
+                if (e.which === 13) {
+                    sendMessage();
+                }
+            });
+            
+            function sendMessage() {
+                const userInput = $('#user-input').val().trim();
+                
+                if (!userInput) {
+                    return;
+                }
+                
+                // Add user message to chat
+                addMessage(userInput, 'user');
+                
+                // Clear input
+                $('#user-input').val('');
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Send request to server
+                $.ajax({
+                    url: '/get',
+                    type: 'POST',
+                    data: { msg: userInput },
+                    success: function(response) {
+                        hideTypingIndicator();
+                        addMessage(response, 'bot');
+                    },
+                    error: function() {
+                        hideTypingIndicator();
+                        addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+                    }
+                });
+            }
+            
+            function addMessage(message, sender) {
+                const messageClass = sender === 'user' ? 'user-message' : 'bot-message';
+                const messageHtml = `<div class="${messageClass}">${message}</div>`;
+                $('#chat-box').append(messageHtml);
+                scrollToBottom();
+            }
+            
+            function showTypingIndicator() {
+                const typingHtml = '<div class="bot-message typing-indicator">Typing...</div>';
+                $('#chat-box').append(typingHtml);
+                scrollToBottom();
+            }
+            
+            function hideTypingIndicator() {
+                $('.typing-indicator').remove();
+            }
+            
+            function scrollToBottom() {
+                const chatBox = document.getElementById('chat-box');
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
