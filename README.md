@@ -2,14 +2,14 @@
 
 A lightweight, web-based chatbot for college student query assistance built with Python Flask and intelligent FAQ matching.
 
-## ✨ Features
+##  Features
 
-- 💬 **Smart FAQ Matching**: Intelligent similarity matching using built-in Python libraries
-- 📚 **College Knowledge Base**: Pre-loaded with common college queries and responses
-- 🎯 **Contextual Responses**: Intelligent fallback responses for unmatched questions
-- 📱 **Responsive Design**: Compact widget positioned bottom-left with professional styling
-- ⚡ **Lightweight**: Fast installation and startup with minimal dependencies
-- 🔧 **Easy Customization**: Simple CSV-based knowledge management
+-  **Smart FAQ Matching**: Intelligent similarity matching using built-in Python libraries
+-  **College Knowledge Base**: Pre-loaded with common college queries and responses
+-  **Contextual Responses**: Intelligent fallback responses for unmatched questions
+-  **Responsive Design**: Compact widget positioned bottom-left with professional styling
+-  **Lightweight**: Fast installation and startup with minimal dependencies
+-  **Easy Customization**: Simple CSV-based knowledge management
 
 ## Project Structure
 
@@ -46,7 +46,7 @@ The application will start on `http://localhost:5000`
 
 Open your web browser and navigate to `http://localhost:5000`
 
-## 🧠 How It Works
+##  How It Works
 
 ### 1. FAQ Matching (Primary)
 - Uses Python's built-in `difflib` for similarity comparison
@@ -79,7 +79,7 @@ question,answer
 "Your question here","Your answer here"
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -130,7 +130,7 @@ Test the chatbot with various inputs:
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature-name`
@@ -138,17 +138,17 @@ This project is open source and available under the MIT License.
 4. Push to the branch: `git push origin feature-name`
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built with Flask and Python
 - Inspired by modern chatbot interfaces
 - Designed for educational institutions
 
-## 📞 Support
+##  Support
 
 For issues or questions:
 1. Check the [troubleshooting](#-troubleshooting) section
@@ -157,4 +157,4 @@ For issues or questions:
 
 ---
 
-⭐ **Star this repository if you find it helpful!**
+ **Star this repository if you find it helpful!**
